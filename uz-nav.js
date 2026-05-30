@@ -114,6 +114,7 @@
     { key: 'collision', label: 'CollisionLab',     short: 'Collision', href: 'collisionlab/', match: ['/collisionlab'] },
     { key: 'morning',   label: 'Morning Pages',    short: 'Morning',   href: 'morningpages/', match: ['/morningpages'] },
     { key: 'sense',     label: 'SenseSpark',       short: 'Sense',     href: 'sensespark/',   match: ['/sensespark'] },
+    { key: 'resources', label: 'Resources',        short: 'Refs',      href: '/resources/',    match: ['/resources', '/chord-progressions', '/chord', '/chord-embellishments', '/arpeggios'] },
     { key: 'blog',      label: 'Field Notes',     short: 'Blog',      href: 'blog/',         match: ['/blog'] },
   ];
 
@@ -197,6 +198,16 @@
       '<path d="M24 10 L8 24 L12 24 L12 38 L20 38 L20 28 L28 28 L28 38 L36 38 L36 24 L40 24 Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>';
   }
 
+  function iconResources(sz) {
+    // Three stacked books leaning slightly, library/reference iconography
+    return '<svg width="' + sz + '" height="' + sz + '" viewBox="0 0 48 48" fill="none">' +
+      '<rect x="9" y="14" width="8" height="26" rx="1" stroke="currentColor" stroke-width="2.4" fill="none"/>' +
+      '<rect x="20" y="12" width="8" height="28" rx="1" stroke="currentColor" stroke-width="2.4" fill="none"/>' +
+      '<rect x="31" y="16" width="8" height="24" rx="1" stroke="currentColor" stroke-width="2.4" fill="none" transform="rotate(8 35 28)"/>' +
+      '<line x1="9" y1="22" x2="17" y2="22" stroke="currentColor" stroke-width="1.6"/>' +
+      '<line x1="20" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.6"/></svg>';
+  }
+
   var iconFns = {
     home: iconHome,
     zest: iconZest,
@@ -204,10 +215,11 @@
     collision: iconCollision,
     morning: iconMorning,
     sense: iconSense,
+    resources: iconResources,
     blog: iconBlog
   };
-  var railSz = { home: 34, zest: 34, rhyme: 34, collision: 40, morning: 40, sense: 40, blog: 32 };
-  var dockSz = { home: 44, zest: 44, rhyme: 44, collision: 52, morning: 52, sense: 52, blog: 42 };
+  var railSz = { home: 34, zest: 34, rhyme: 34, collision: 40, morning: 40, sense: 40, resources: 34, blog: 32 };
+  var dockSz = { home: 44, zest: 44, rhyme: 44, collision: 52, morning: 52, sense: 52, resources: 44, blog: 42 };
   var RAIL_H = 52;
 
   // ── Inject CSS ─────────────────────────────────────────────────────
@@ -227,6 +239,7 @@
     '.uz-rail-item[data-app="collision"].uz-active{border-bottom-color:#a78bfa}',
     '.uz-rail-item[data-app="morning"].uz-active{border-bottom-color:#8b7355}',
     '.uz-rail-item[data-app="sense"].uz-active{border-bottom-color:#E8453C}',
+    '.uz-rail-item[data-app="resources"].uz-active{border-bottom-color:#6ba6c4}',
     '.uz-rail-item[data-app="blog"].uz-active{border-bottom-color:#d4a853}',
     '.uz-rail-item[data-app="blog"]{margin-left:auto;border-left:1px solid rgba(255,255,255,0.1)}',
 
@@ -251,6 +264,8 @@
     '.uz-dock-item[data-app="morning"].uz-active .uz-dock-label{color:#c4b59a}',
     '.uz-dock-item[data-app="sense"].uz-active{background:rgba(232,69,60,0.12)}',
     '.uz-dock-item[data-app="sense"].uz-active .uz-dock-label{color:#E8453C}',
+    '.uz-dock-item[data-app="resources"].uz-active{background:rgba(107,166,196,0.12)}',
+    '.uz-dock-item[data-app="resources"].uz-active .uz-dock-label{color:#6ba6c4}',
     '.uz-dock-item[data-app="blog"].uz-active{background:rgba(212,168,83,0.12)}',
     '.uz-dock-item[data-app="blog"].uz-active .uz-dock-label{color:#d4a853}',
     '.uz-dock-close{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;cursor:pointer;color:rgba(255,255,255,0.3);font-size:.9rem;transition:all .2s;flex-shrink:0}',

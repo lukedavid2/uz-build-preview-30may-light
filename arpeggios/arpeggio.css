@@ -1,0 +1,272 @@
+/* ══════════════════════════════════════════════════════════════════════
+   ARPEGGIO PAGES — supplemental stylesheet
+   Used by:
+     /arpeggios/index.html
+     /arpeggios/<shape>/index.html  (10 shape pages)
+   Extends /chord-progressions/chord-pages.css.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.ap-wrap { max-width: 980px; }
+
+/* ── Arpeggio fretboard renderer sizing ───────────────────────────── */
+
+.ap-fretboard {
+  display: block;
+  margin: 0 auto 12px;
+  width: 130px;
+  height: 162px;
+}
+.ap-fretboard-compact {
+  display: block;
+  margin: 0 auto 10px;
+  width: 96px;
+  height: 124px;
+}
+
+/* ── The three-view hero trio on shape pages ───────────────────────── */
+
+.ap-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.ap-trio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ap-trio-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+}
+.ap-trio-card .cp-voicing-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.ap-trio-cap {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Distinct accents per trio card */
+.ap-trio-card:nth-child(1) { border-left: 4px solid var(--predominant); }
+.ap-trio-card:nth-child(2) { border-left: 4px solid var(--accent); }
+.ap-trio-card:nth-child(3) { border-left: 4px solid var(--subdominant); }
+
+@media (max-width: 720px) {
+  .ap-trio { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* ── Variation grids (4-note + 3-note) ────────────────────────────── */
+
+.ap-variations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+.ap-var-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.ap-var-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+.ap-var-card .cp-voicing-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.ap-var-cap {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* ── Drills ──────────────────────────────────────────────────────── */
+
+.ap-drills {
+  display: grid;
+  gap: 14px;
+}
+.ap-drill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--tonic);
+  border-radius: 10px;
+  padding: 18px 22px 16px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.ap-drill-no {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 32px;
+  text-align: center;
+}
+.ap-drill-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.ap-drill-body p {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Overview: 10-shape grid ───────────────────────────────────────── */
+
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.ap-grid-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.ap-grid-cell:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.ap-grid-name {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.ap-grid-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.ap-grid-cta {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-top: 10px;
+}
+
+/* Differentiate minor cells visually */
+.cp-voicings-subhead + .cp-voicings-sub-p + .ap-grid .ap-grid-cell {
+  /* keep default for first instance (major) */
+}
+.cp-voicings-subhead:nth-of-type(2) ~ .ap-grid .ap-grid-cell {
+  border-left: 3px solid var(--color-chord);
+}
+
+/* ── Major vs minor compare ───────────────────────────────────────── */
+
+.ap-mm-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.ap-mm-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px 20px;
+}
+.ap-mm-major { border-left: 4px solid var(--accent); }
+.ap-mm-minor { border-left: 4px solid var(--color-chord); }
+.ap-mm-col h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.ap-mm-major h3 { color: var(--accent); }
+.ap-mm-minor h3 { color: var(--color-chord); }
+.ap-mm-formula {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.ap-mm-col p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .ap-mm-compare { grid-template-columns: 1fr; }
+}
+
+/* ── Theory block reuses cp-theory-block; arpeggio extras ─────────── */
+
+.cp-theory-block p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.cp-theory-block p:last-child { margin-bottom: 0; }
+.cp-theory-block em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+@media (max-width: 720px) {
+  .ap-wrap { padding-left: 18px; padding-right: 18px; }
+  .ap-drill { padding: 16px 16px 14px; gap: 12px; }
+  .ap-drill-no { font-size: 1.4rem; min-width: 24px; }
+}

@@ -629,3 +629,236 @@ body {
   .cp-fretboard-triad { width: 64px; height: 86px; }
   .cp-piano { width: 160px; height: 80px; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   CHORD EMBELLISHMENT PAGES (added 30 May)
+   /chord-embellishments/ and /chord-embellishments/open-<chord>/
+   Builds on the existing .cp-* chrome with .ce-* extensions.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Theory blocks */
+.cp-theory-block { color: var(--text-secondary); line-height: 1.75; }
+.cp-theory-block p { margin: 0 0 14px; }
+.cp-theory-block p:last-child { margin-bottom: 0; }
+.cp-theory-block strong { color: var(--text-primary); font-weight: 500; }
+.cp-theory-block em { color: var(--accent); font-style: italic; }
+
+/* Base-shape voicing showcase: keep it centred and roomy */
+.ce-voicings-base {
+  grid-template-columns: minmax(240px, 320px);
+  justify-content: center;
+}
+
+/* Embellishment card grid */
+.ce-voicings {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+.ce-card {
+  text-align: left;
+  align-items: stretch;
+}
+.ce-card-base {
+  border-left: 3px solid var(--accent);
+}
+.ce-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.ce-card .cp-voicing-label {
+  margin-bottom: 0;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.ce-degree-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.ce-degree-safe {
+  color: var(--tonic);
+  background: rgba(94,194,105,0.10);
+  border: 1px solid rgba(94,194,105,0.4);
+}
+.ce-degree-risky {
+  color: var(--color-chord);
+  background: rgba(168,107,212,0.10);
+  border: 1px solid rgba(168,107,212,0.4);
+}
+.ce-card .cp-fretboard {
+  width: 110px;
+  height: 142px;
+  margin: 6px auto 14px;
+}
+.ce-card-ctx {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.ce-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  margin-top: auto;
+}
+.ce-card-cta em { font-style: italic; }
+.ce-card-cta:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+/* Safe / risky section accents */
+.ce-section-safe > h2::before { background: var(--tonic); }
+.ce-section-safe .ce-card { border-left: 3px solid rgba(94,194,105,0.6); }
+.ce-section-risky > h2::before { background: var(--color-chord); }
+.ce-section-risky .ce-card { border-left: 3px solid rgba(168,107,212,0.6); }
+
+/* Framework two-column block on overview */
+.ce-framework {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.ce-framework-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+.ce-framework-safe { border-left: 4px solid var(--tonic); }
+.ce-framework-risky { border-left: 4px solid var(--color-chord); }
+.ce-framework-col h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+  color: var(--text-primary);
+}
+.ce-framework-safe h3 { color: var(--tonic); }
+.ce-framework-risky h3 { color: var(--color-chord); }
+.ce-framework-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ce-framework-row:last-child { border-bottom: none; }
+.ce-framework-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  min-width: 56px;
+}
+.ce-framework-list {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Overview grid: 8 chords side by side, base + embellished */
+.ce-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.ce-grid-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+}
+.ce-grid-cell h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 14px;
+  letter-spacing: -0.005em;
+}
+.ce-grid-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.ce-grid-half {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 8px 8px;
+}
+.ce-grid-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.ce-grid-label-emb {
+  color: var(--accent);
+  font-weight: 600;
+}
+.ce-grid-half .cp-fretboard {
+  width: 100px;
+  height: 130px;
+  margin: 0;
+}
+.ce-grid-cta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  margin-top: auto;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.ce-grid-cta:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+/* Mobile overrides */
+@media (max-width: 720px) {
+  .ce-framework { grid-template-columns: 1fr; }
+  .ce-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ce-grid-cell { padding: 18px 16px 14px; }
+  .ce-grid-half .cp-fretboard { width: 84px; height: 108px; }
+  .ce-voicings { grid-template-columns: 1fr; }
+  .ce-card .cp-fretboard { width: 110px; height: 142px; }
+}

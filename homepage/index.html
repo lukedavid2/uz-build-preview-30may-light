@@ -588,6 +588,38 @@ body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════
+     REFERENCE LIBRARY — link to /resources/ hub
+     ════════════════════════════════════════════════════════════════ -->
+<style>
+.hp-reflib { max-width: 1100px; margin: 56px auto 32px; padding: 0 24px; }
+.hp-reflib-card { background: rgba(107,166,196,0.06); border: 1px solid rgba(107,166,196,0.18); border-left: 3px solid #6ba6c4; border-radius: 14px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
+@media (max-width: 720px) { .hp-reflib-card { grid-template-columns: 1fr; padding: 22px 22px; } }
+.hp-reflib-eyebrow { font-family: 'Outfit', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: #6ba6c4; font-weight: 600; margin-bottom: 8px; }
+.hp-reflib-card h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #fff; margin: 0 0 8px; line-height: 1.2; }
+.hp-reflib-card p { color: rgba(255,255,255,0.7); font-size: 0.97rem; line-height: 1.6; margin: 0 0 14px; max-width: 640px; }
+.hp-reflib-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.hp-reflib-chip { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 5px 11px; border-radius: 4px; }
+.hp-reflib-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: #6ba6c4; color: #08080c; font-weight: 600; font-size: 0.92rem; text-decoration: none; border-radius: 8px; white-space: nowrap; transition: background 0.15s, transform 0.15s; }
+.hp-reflib-cta:hover { background: #84b5cc; transform: translateY(-1px); }
+</style>
+<div class="hp-reflib">
+  <div class="hp-reflib-card">
+    <div>
+      <div class="hp-reflib-eyebrow">Reference library</div>
+      <h2>Free songwriting reference, organised.</h2>
+      <p>Chord progressions in every key, individual chord voicings, open-chord embellishments, arpeggio shapes. Look things up when you need them; ignore the rest.</p>
+      <div class="hp-reflib-chips">
+        <span class="hp-reflib-chip">24 keys</span>
+        <span class="hp-reflib-chip">50 chords</span>
+        <span class="hp-reflib-chip">8 embellishments</span>
+        <span class="hp-reflib-chip">10 arpeggio shapes</span>
+      </div>
+    </div>
+    <a class="hp-reflib-cta" href="../resources/">Browse the library &rarr;</a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
      FROM FIELD NOTES — blog section (Field Notes design, integrated into the live homepage)
      ════════════════════════════════════════════════════════════════ -->
 <div class="hp-blog-wrap">

@@ -37,14 +37,11 @@
   <meta name="description" content="{{ DESCRIPTION, ~155 chars, SEO-friendly, includes target keyword. }}">
   <meta name="keywords" content="{{ COMMA, SEPARATED, KEYWORDS }}">
   <meta name="theme-color" content="#1a1a2a">
-  <link rel="canonical" href="https://undercoverzest.app/blog/{{ SLUG }}/">
-
-  <!-- Open Graph -->
+<!-- Open Graph -->
   <meta property="og:title" content="{{ TITLE }}">
   <meta property="og:description" content="{{ SHORT_OG_DESCRIPTION }}">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://undercoverzest.app/blog/{{ SLUG }}/">
-  <meta property="og:image" content="https://undercoverzest.app/lemon-logo.png">
+<meta property="og:image" content="https://undercoverzest.app/lemon-logo.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
@@ -56,7 +53,7 @@
 
   <!-- Shared fonts + blog stylesheet -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="../blog/blog.css">
 
   <!-- ── JSON-LD: every article needs its own ─────────────────────── -->
   <script type="application/ld+json">
@@ -91,7 +88,7 @@
   <article class="fn-wrap fn-article">
 
     <!-- 1. Back link, always /blog/ -->
-    <a class="fn-back" href="/blog/">Back to all Field Notes</a>
+    <a class="fn-back" href="../blog/">Back to all Field Notes</a>
 
     <!-- 2. Eyebrow: Category · Field Notes #NNN -->
     <div class="fn-eyebrow">{{ CATEGORY }} · Field Notes #{{ NNN }}</div>
@@ -153,7 +150,7 @@
     <section class="fn-foot" aria-label="Keep reading">
       <div>
         <div class="fn-foot-eyebrow">Up next</div>
-        <a class="fn-next-card" href="/blog/{{ NEXT_SLUG }}/">
+        <a class="fn-next-card" href="../blog/{{ NEXT_SLUG }}/">
           <div class="fn-next-cat">{{ NEXT_CATEGORY }} · {{ NEXT_AUTHOR }}</div>
           <div class="fn-next-title">{{ NEXT_TITLE }}</div>
           <span class="fn-next-arrow">Read next →</span>
@@ -162,15 +159,15 @@
       <div>
         <div class="fn-foot-eyebrow">Related reading</div>
         <div class="fn-related">
-          <a class="fn-related-link" href="/blog/{{ RELATED_SLUG_1 }}/">
+          <a class="fn-related-link" href="../blog/{{ RELATED_SLUG_1 }}/">
             <span class="fn-related-cat">{{ CATEGORY }}</span>
             {{ RELATED_TITLE_1 }}
           </a>
-          <a class="fn-related-link" href="/blog/{{ RELATED_SLUG_2 }}/">
+          <a class="fn-related-link" href="../blog/{{ RELATED_SLUG_2 }}/">
             <span class="fn-related-cat">{{ CATEGORY }}</span>
             {{ RELATED_TITLE_2 }}
           </a>
-          <a class="fn-related-link" href="/blog/{{ RELATED_SLUG_3 }}/">
+          <a class="fn-related-link" href="../blog/{{ RELATED_SLUG_3 }}/">
             <span class="fn-related-cat">{{ CATEGORY }}</span>
             {{ RELATED_TITLE_3 }}
           </a>
@@ -185,12 +182,12 @@
       No account, no cost, no catch.
     </p>
 
-    <p class="fn-disclosure-link"><a href="/blog/about/">About the writers</a></p>
+    <p class="fn-disclosure-link"><a href="../blog/about/">About the writers</a></p>
 
   </article>
 
   <!-- 11. Suite shell, same on every page -->
-  <script src="/uz-nav.js"></script>
-  <script src="/uz-footer.js"></script>
+  <script src="../uz-nav.js"></script>
+  <script src="../uz-footer.js"></script>
 </body>
 </html>

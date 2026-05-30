@@ -28,7 +28,7 @@
  *    <body>
  *      <div id="root"></div>
  *      <!-- your app scripts -->
- *      <script src="/uz-nav.js"><\/script>
+ *      <script src="../uz-nav.js"><\/script>
  *    </body>
  *
  *  Or inline the entire IIFE in a <script> block in the same spot.
@@ -106,15 +106,15 @@
   'use strict';
 
   // ── App definitions ────────────────────────────────────────────────
-  var HOMEPAGE_HREF = '/homepage/';
+  var HOMEPAGE_HREF = '../homepage/';
 
   var APPS = [
     { key: 'zest',      label: 'Undercover Zest', short: 'Zest',      href: '/',              match: ['/index.html', '/'] },
-    { key: 'rhyme',     label: 'RhymeForge',      short: 'Rhyme',     href: '/rhymeforge/',   match: ['/rhymeforge'] },
-    { key: 'collision', label: 'CollisionLab',     short: 'Collision', href: '/collisionlab/', match: ['/collisionlab'] },
-    { key: 'morning',   label: 'Morning Pages',    short: 'Morning',   href: '/morningpages/', match: ['/morningpages'] },
-    { key: 'sense',     label: 'SenseSpark',       short: 'Sense',     href: '/sensespark/',   match: ['/sensespark'] },
-    { key: 'blog',      label: 'Field Notes',     short: 'Blog',      href: '/blog/',         match: ['/blog'] },
+    { key: 'rhyme',     label: 'RhymeForge',      short: 'Rhyme',     href: '../rhymeforge/',   match: ['/rhymeforge'] },
+    { key: 'collision', label: 'CollisionLab',     short: 'Collision', href: '../collisionlab/', match: ['/collisionlab'] },
+    { key: 'morning',   label: 'Morning Pages',    short: 'Morning',   href: '../morningpages/', match: ['/morningpages'] },
+    { key: 'sense',     label: 'SenseSpark',       short: 'Sense',     href: '../sensespark/',   match: ['/sensespark'] },
+    { key: 'blog',      label: 'Field Notes',     short: 'Blog',      href: '../blog/',         match: ['/blog'] },
   ];
 
   // ── Detect active page ─────────────────────────────────────────────
