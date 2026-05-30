@@ -1,0 +1,8 @@
+# Redirect old prototype rhyme URLs to the new /rhymeforge/rhymes-with-X/ structure.
+# Append these lines to the live Netlify _redirects file.
+/rhymes/love     /rhymeforge/rhymes-with-love/    301
+/rhymes/fire     /rhymeforge/rhymes-with-fire/    301
+/rhymes/night    /rhymeforge/rhymes-with-night/   301
+/rhymes/love/    /rhymeforge/rhymes-with-love/    301
+/rhymes/fire/    /rhymeforge/rhymes-with-fire/    301
+/rhymes/night/   /rhymeforge/rhymes-with-night/   301

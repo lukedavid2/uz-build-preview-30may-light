@@ -1,0 +1,391 @@
+/* ══════════════════════════════════════════════════════════════════════
+   CHORD PAGES — shared stylesheet
+   Used by:
+     /chord-progressions/in-<key>/index.html   (24 key pages)
+     /chord/<chord-name>/index.html            (50 chord pages)
+   Chrome echoes the chord-builder home so users feel "this is the
+   chord builder's territory."
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #08080c;
+  --bg-secondary: #0e0e14;
+  --bg-card: #14141e;
+  --bg-card-hover: #1a1a28;
+  --border: #252530;
+  --border-light: #2e2e3a;
+  --text-primary: #ebe8e2;
+  --text-secondary: #a0a0a8;
+  --text-muted: #606068;
+  --accent: #d4a745;
+  --accent-hover: #e4bc6c;
+  --accent-glow: rgba(212, 167, 69, 0.15);
+  --tonic: #5ec269;
+  --subdominant: #4db8d4;
+  --dominant: #e06b5e;
+  --predominant: #e8a94e;
+  --color-chord: #a86bd4;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+html { font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.cp-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 72px 24px 80px;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+
+.cp-hero {
+  text-align: center;
+  margin-bottom: 56px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+}
+.cp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.cp-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.cp-hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.cp-intro {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 660px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.cp-intro em { color: var(--accent); font-style: italic; }
+.cp-cta-primary {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #0a0a10;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border-radius: 6px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.cp-cta-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+.cp-cta-primary em { font-style: italic; }
+
+/* ── Section heads ────────────────────────────────────────────────── */
+
+.cp-section {
+  margin: 56px 0;
+}
+.cp-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.cp-section h2 em { color: var(--accent); font-style: italic; }
+.cp-section p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.cp-section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cp-section a:hover { color: var(--accent-hover); }
+
+/* ── Diatonic chord table ─────────────────────────────────────────── */
+
+.cp-diatonic {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  overflow-x: auto;
+}
+.cp-diatonic table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+.cp-diatonic th, .cp-diatonic td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.cp-diatonic th {
+  color: var(--accent);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+.cp-diatonic tr:last-child td { border-bottom: none; }
+.cp-diatonic .cp-roman {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.cp-diatonic .cp-chord-name {
+  font-weight: 600;
+  color: var(--accent);
+}
+.cp-diatonic .cp-quality {
+  color: var(--text-secondary);
+}
+.cp-diatonic .cp-function {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ── Progressions list ────────────────────────────────────────────── */
+
+.cp-prog {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+}
+.cp-prog-roman {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.cp-prog-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.cp-prog-name em { color: var(--accent); font-style: italic; }
+.cp-prog-chords {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.cp-prog-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.cp-prog-songs {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ── Borrowed chords ──────────────────────────────────────────────── */
+
+.cp-borrowed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.cp-borrowed-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.cp-borrowed-name {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.cp-borrowed-source {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.cp-borrowed-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ── Voicings (chord pages) ───────────────────────────────────────── */
+
+.cp-voicings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.cp-voicing {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.cp-voicing-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.cp-voicing-tab {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+  white-space: pre;
+  overflow-x: auto;
+}
+.cp-voicing-notes {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* ── Related links ────────────────────────────────────────────────── */
+
+.cp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+.cp-related-grid a {
+  display: block;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.cp-related-grid a:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Songs list ───────────────────────────────────────────────────── */
+
+.cp-songs {
+  list-style: none;
+  padding: 0;
+}
+.cp-songs li {
+  padding: 12px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.cp-songs em { color: var(--text-primary); font-style: italic; }
+
+/* ── About collapse ───────────────────────────────────────────────── */
+
+.cp-about {
+  margin: 56px 0 32px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+}
+.cp-about summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 22px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  user-select: none;
+}
+.cp-about summary::-webkit-details-marker { display: none; }
+.cp-about summary::after {
+  content: ' +';
+  color: var(--text-muted);
+}
+.cp-about[open] summary::after { content: ' \2212'; }
+.cp-about-body {
+  padding: 0 22px 22px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.cp-about-body p { margin-bottom: 10px; }
+
+/* ── Footer note ──────────────────────────────────────────────────── */
+
+.cp-footer-note {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  .cp-wrap { padding: 44px 18px 60px; }
+  .cp-hero { margin-bottom: 40px; padding-bottom: 28px; }
+  .cp-section { margin: 40px 0; }
+  .cp-diatonic { padding: 16px; }
+  .cp-diatonic th, .cp-diatonic td { padding: 8px 10px; font-size: 0.88rem; }
+  .cp-prog { padding: 16px 18px; }
+  .cp-borrowed-grid { grid-template-columns: 1fr; }
+  .cp-voicings { grid-template-columns: 1fr; }
+  .cp-related-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}

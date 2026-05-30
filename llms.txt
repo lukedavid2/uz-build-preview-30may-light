@@ -1,0 +1,24 @@
+# Undercover Zest
+
+> A free suite of five interactive songwriting tools for guitarists, lyricists and songwriters. Browser-based. No accounts, no sign-up, no paywalls.
+
+Undercover Zest is a browser-based suite of songwriting tools built by an independent developer-songwriter. Every tool is free, runs entirely in the browser, and requires no account. The suite is designed to make the practical, repetitive parts of songwriting — finding chords, finding rhymes, finding metaphors, getting words on the page — faster and more enjoyable.
+
+The tools are deliberately complementary: a progression built in the chord tool can feed a rhyme search in RhymeForge, which can feed a metaphor in CollisionLab, which can land in a Morning Pages draft.
+
+## Tools
+
+- [Guitar Chord Progression Builder](https://undercoverzest.app/): Build chord progressions in any key. Diatonic chord grid, fretboard scale visualiser, arpeggiator, chromatic tuner, key finder and chord picker.
+- [RhymeForge](https://undercoverzest.app/rhymeforge/): A songwriter's rhyme engine. Searches 54,000+ words across five rhyme types — perfect, family, additive, assonance and consonance.
+- [CollisionLab](https://undercoverzest.app/collisionlab/): A metaphor and simile builder. Smashes concepts together to generate unexpected metaphors and similes for lyrics and poetry.
+- [Morning Pages](https://undercoverzest.app/morningpages/): A distraction-free morning writing journal with daily and weekly tracking, built for stream-of-consciousness drafting.
+- [SenseSpark](https://undercoverzest.app/sensespark/): A sensory writing prompt generator. Produces prompts across sight, sound, touch, taste and smell to break creative blocks.
+
+## Suite
+
+- [Undercover Zest homepage](https://undercoverzest.app/homepage/): Overview of all five tools.
+- [Field Notes blog](https://undercoverzest.app/blog/): Short essays on songwriting craft. One a week, free.
+
+## About
+
+Built by an independent developer-songwriter. Free, browser-based, no sign-up. The suite is a personal project, not a startup; the tools exist because the maker wanted them and shipped them publicly. Feedback and suggestions are welcome at the homepage.
