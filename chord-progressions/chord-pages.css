@@ -406,6 +406,69 @@ body {
   font-weight: 500;
 }
 
+/* ── Voicings sub-sections ────────────────────────────────────────── */
+
+.cp-voicings-subhead {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 34px 0 6px;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.cp-voicings-subhead::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background: var(--accent);
+  transform: translateY(-5px);
+  flex-shrink: 0;
+}
+.cp-voicings-subhead:first-of-type {
+  margin-top: 6px;
+}
+.cp-voicings-sub-p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 16px;
+  max-width: 700px;
+}
+
+/* ── Compact triad voicing ────────────────────────────────────────── */
+
+.cp-voicings-triads {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+.cp-voicing-triad {
+  padding: 14px 14px 12px;
+  border-left: 3px solid var(--subdominant);
+}
+.cp-fretboard-triad {
+  display: block;
+  margin: 0 auto 10px;
+  width: 70px;
+  height: 95px;
+}
+.cp-voicing-triad .cp-voicing-label {
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+}
+.cp-voicing-triad .cp-voicing-notes {
+  font-size: 0.74rem;
+}
+
+/* ── Piano voicings row tighter, gold left border for distinction ── */
+
+.cp-voicings-piano .cp-voicing {
+  border-left: 3px solid var(--predominant);
+}
+
 /* ── Pill chips for related chords / keys ─────────────────────────── */
 
 .cp-chips {
@@ -545,17 +608,24 @@ body {
   .cp-prog-key-tag { margin-left: 0; padding-left: 0; flex-basis: 100%; margin-top: 4px; }
   .cp-borrowed-grid { grid-template-columns: 1fr; }
   .cp-voicings { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cp-voicings-triads { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .cp-voicing { padding: 14px 10px 12px; }
+  .cp-voicing-triad { padding: 10px 6px 8px; }
   .cp-fretboard { width: 80px; height: 105px; }
+  .cp-fretboard-triad { width: 56px; height: 76px; }
   .cp-piano { width: 130px; height: 70px; }
   .cp-voicing-notes { font-size: 0.78rem; }
+  .cp-voicings-subhead { font-size: 1.05rem; margin-top: 24px; }
   .cp-chips { gap: 8px; }
   .cp-chip { padding: 8px 13px; font-size: 0.82rem; }
 }
 
 @media (max-width: 420px) {
   .cp-voicings { grid-template-columns: 1fr; }
+  .cp-voicings-triads { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .cp-voicing { padding: 16px 14px; }
+  .cp-voicing-triad { padding: 12px 8px; }
   .cp-fretboard { width: 100px; height: 130px; }
+  .cp-fretboard-triad { width: 64px; height: 86px; }
   .cp-piano { width: 160px; height: 80px; }
 }
