@@ -102,6 +102,89 @@ a { color: var(--gold); text-decoration: none; }
   border-color: var(--gold);
 }
 
+/* ── Series filter disclosure (below topic chips) ───────────────── */
+
+.fn-series-disclosure {
+  margin-top: 12px;
+  font-family: 'Outfit', sans-serif;
+}
+.fn-series-summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: inline-block;
+  user-select: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.fn-series-summary::-webkit-details-marker { display: none; }
+.fn-series-summary::after {
+  content: ' ▾';
+  opacity: 0.6;
+}
+.fn-series-disclosure[open] .fn-series-summary::after {
+  content: ' ▴';
+}
+.fn-series-summary:hover {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.18);
+}
+.fn-series-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* ── Songwriter Spotlight call-to-submit (above article list) ───── */
+
+.fn-spotlight-cta {
+  margin: 24px 0 36px;
+  padding: 22px 26px;
+  background: rgba(212, 167, 69, 0.06);
+  border: 1px solid rgba(212, 167, 69, 0.18);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+}
+.fn-spotlight-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.fn-spotlight-body {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  max-width: 680px;
+}
+.fn-spotlight-action {
+  margin: 0;
+}
+.fn-spotlight-action a {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212, 167, 69, 0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+.fn-spotlight-action a:hover {
+  border-bottom-color: var(--gold);
+}
+
 /* ── Article list entries (index page) ─────────────────────────── */
 
 .fn-list { display: flex; flex-direction: column; }
