@@ -55,8 +55,9 @@
       <details class="fn-series-disclosure" aria-label="Filter by series">
         <summary class="fn-series-summary">Filter by series</summary>
         <div class="fn-series-chips">
+          <!-- SERIES:CHIPS:START — auto-generated from queue.json by publish-field-notes workflow. Do not hand-edit between these markers. -->
           <button class="fn-chip is-active" type="button" data-filter-series="all">All articles</button>
-          <button class="fn-chip" type="button" data-filter-series="Demystifying Arpeggios">Demystifying Arpeggios</button>
+          <!-- SERIES:CHIPS:END -->
         </div>
       </details>
     </header>
@@ -220,8 +221,15 @@
   (function () {
     var topicChips = document.querySelectorAll('.fn-topic-row .fn-chip');
     var seriesChips = document.querySelectorAll('.fn-series-chips .fn-chip');
+    var seriesDisclosure = document.querySelector('.fn-series-disclosure');
     var entries = document.querySelectorAll('.fn-list .fn-entry');
     if (!entries.length) return;
+
+    // Hide the series-filter disclosure entirely if no series are present
+    // (only the placeholder "All articles" chip is rendered).
+    if (seriesDisclosure && seriesChips.length <= 1) {
+      seriesDisclosure.style.display = 'none';
+    }
 
     var activeTopic = 'all';
     var activeSeries = 'all';

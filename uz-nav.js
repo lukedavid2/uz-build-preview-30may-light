@@ -28,7 +28,7 @@
  *    <body>
  *      <div id="root"></div>
  *      <!-- your app scripts -->
- *      <script src="uz-nav.js"><\/script>
+ *      <script src="/uz-nav.js"><\/script>
  *    </body>
  *
  *  Or inline the entire IIFE in a <script> block in the same spot.
@@ -106,16 +106,37 @@
   'use strict';
 
   // ── App definitions ────────────────────────────────────────────────
-  var HOMEPAGE_HREF = 'homepage/';
+  var HOMEPAGE_HREF = '/homepage/';
+
+  // Auto-detect a base-path prefix for GitHub Pages preview support.
+  // On live (undercoverzest.app), this evaluates to '' so absolute hrefs work as written.
+  // On lukedavid2.github.io/uz-build-preview-XX/, evaluates to '/uz-build-preview-XX'
+  // so we prefix every absolute href to land inside the preview repo path.
+  function uzGetBasePath() {
+    try {
+      var host = window.location.hostname || '';
+      if (host.endsWith('.github.io')) {
+        var segs = (window.location.pathname || '').split('/').filter(Boolean);
+        if (segs.length > 0) return '/' + segs[0];
+      }
+    } catch (e) {}
+    return '';
+  }
+  var UZ_BASE = uzGetBasePath();
+  function uzHref(p) {
+    if (!p) return p;
+    if (p.charAt(0) === '/' && UZ_BASE) return UZ_BASE + p;
+    return p;
+  }
 
   var APPS = [
     { key: 'zest',      label: 'Undercover Zest', short: 'Zest',      href: '/',              match: ['/index.html', '/'] },
-    { key: 'rhyme',     label: 'RhymeForge',      short: 'Rhyme',     href: 'rhymeforge/',   match: ['/rhymeforge'] },
-    { key: 'collision', label: 'CollisionLab',     short: 'Collision', href: 'collisionlab/', match: ['/collisionlab'] },
-    { key: 'morning',   label: 'Morning Pages',    short: 'Morning',   href: 'morningpages/', match: ['/morningpages'] },
-    { key: 'sense',     label: 'SenseSpark',       short: 'Sense',     href: 'sensespark/',   match: ['/sensespark'] },
+    { key: 'rhyme',     label: 'RhymeForge',      short: 'Rhyme',     href: '/rhymeforge/',   match: ['/rhymeforge'] },
+    { key: 'collision', label: 'CollisionLab',     short: 'Collision', href: '/collisionlab/', match: ['/collisionlab'] },
+    { key: 'morning',   label: 'Morning Pages',    short: 'Morning',   href: '/morningpages/', match: ['/morningpages'] },
+    { key: 'sense',     label: 'SenseSpark',       short: 'Sense',     href: '/sensespark/',   match: ['/sensespark'] },
     { key: 'resources', label: 'Resources',        short: 'Refs',      href: '/resources/',    match: ['/resources', '/chord-progressions', '/chord', '/chord-embellishments', '/arpeggios'] },
-    { key: 'blog',      label: 'Field Notes',     short: 'Blog',      href: 'blog/',         match: ['/blog'] },
+    { key: 'blog',      label: 'Field Notes',     short: 'Blog',      href: '/blog/',         match: ['/blog'] },
   ];
 
   // ── Detect active page ─────────────────────────────────────────────
@@ -301,10 +322,10 @@
   var rail = document.createElement('nav');
   rail.className = 'uz-nav-rail';
   rail.id = 'uzNavRail';
-  var railHTML = '<a class="uz-rail-home" href="' + HOMEPAGE_HREF + '" title="Home">\uD83C\uDF4B</a><div class="uz-rail-items">';
+  var railHTML = '<a class="uz-rail-home" href="' + uzHref(HOMEPAGE_HREF) + '" title="Home">\uD83C\uDF4B</a><div class="uz-rail-items">';
   APPS.forEach(function (a) {
     var cls = a.key === activeApp ? ' uz-active' : '';
-    railHTML += '<a class="uz-rail-item' + cls + '" data-app="' + a.key + '" href="' + a.href + '">' + iconFns[a.key](railSz[a.key]) + '<span>' + a.label + '</span></a>';
+    railHTML += '<a class="uz-rail-item' + cls + '" data-app="' + a.key + '" href="' + uzHref(a.href) + '">' + iconFns[a.key](railSz[a.key]) + '<span>' + a.label + '</span></a>';
   });
   railHTML += '</div>';
   rail.innerHTML = railHTML;
@@ -326,10 +347,10 @@
   dock.id = 'uzFloatDock';
   var dockHTML = '';
   // Homepage entry first
-  dockHTML += '<a class="uz-dock-item" data-app="home" href="' + HOMEPAGE_HREF + '">' + iconFns.home(dockSz.home) + '<div class="uz-dock-label">Home</div></a>';
+  dockHTML += '<a class="uz-dock-item" data-app="home" href="' + uzHref(HOMEPAGE_HREF) + '">' + iconFns.home(dockSz.home) + '<div class="uz-dock-label">Home</div></a>';
   APPS.forEach(function (a) {
     var cls = a.key === activeApp ? ' uz-active' : '';
-    dockHTML += '<a class="uz-dock-item' + cls + '" data-app="' + a.key + '" href="' + a.href + '">' + iconFns[a.key](dockSz[a.key]) + '<div class="uz-dock-label">' + a.label + '</div></a>';
+    dockHTML += '<a class="uz-dock-item' + cls + '" data-app="' + a.key + '" href="' + uzHref(a.href) + '">' + iconFns[a.key](dockSz[a.key]) + '<div class="uz-dock-label">' + a.label + '</div></a>';
   });
   dockHTML += '<div class="uz-dock-close" id="uzDockClose">\u2715</div>';
   dock.innerHTML = dockHTML;
